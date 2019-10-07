@@ -15,7 +15,7 @@ export default class AlbumList extends Component {
         .then((response)=>response.json())
         .then(
             (responseJson)=>{
-                this.setState({albuns:responseJson.concat(responseJson)});
+                this.setState({albuns:responseJson});
             }
         )
     }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-export default class MyButton extends Component {
+class MyButton extends Component {
     render() {
         return (
             <TouchableOpacity 
@@ -36,3 +36,5 @@ const estilos = StyleSheet.create({
 
     }
 });
+
+export {MyButton}

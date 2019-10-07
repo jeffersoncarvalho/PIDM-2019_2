@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, Linking } from 'react-native';
 
 import MyButton from './MyButton';
 import Card from './Card';
@@ -26,15 +26,17 @@ export default class AlbumDetail extends Component {
                 <CardItem>
                     <Image
                         source={{uri:this.props.album.image}}
-                        style={{height:300,width:null}}
+                        style={{height:300,width:389}}
                     />
                 </CardItem>
                 
                 <CardItem>
                     <MyButton
                         name="OK"
-                        action={()=>alert("clicou em "+this.props.album.title+"!")} 
-                    />
+                        action={()=>Linking.openURL(this.props.album.url)} 
+                    >
+                        Buy Now!!    
+                    </MyButton>
                 </CardItem>
                 
             </Card>
