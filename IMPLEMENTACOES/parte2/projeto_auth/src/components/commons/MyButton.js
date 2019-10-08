@@ -29,7 +29,7 @@ const estilos = StyleSheet.create({
     textStyle: {
         alignSelf: 'center',
         color: '#007aff',
-        fontSize: 16,
+        fontSize: 18,
         fontWeight: '600',
         paddingTop: 10,
         paddingBottom: 10
