@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, FlatList } from 'react-native'
+import { FlatList , ScrollView} from 'react-native'
 
 import AlbumDetail from './AlbumDetail'
 
@@ -18,13 +18,11 @@ export default class AlbumList extends Component {
 
     render() {
         return (
-            <View>
                 <FlatList
                     data = {this.state.albuns}
                     renderItem = {({item})=><AlbumDetail album={item}/> } 
                     keyExtractor = {(index,item)=>index+item}
                 />
-            </View>
-        )
+        );
     }
 }
