@@ -33,8 +33,7 @@ export default class AlbumDetail extends Component {
                 <CardItem>
                     <MyButton
                         name="OK"
-                        action={()=>Linking.openURL(this.props.album.url)} 
-                    >
+                        action={()=>Linking.openURL(this.props.album.url)}>
                         Buy Now!!    
                     </MyButton>
                 </CardItem>
