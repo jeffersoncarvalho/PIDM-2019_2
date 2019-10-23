@@ -17,16 +17,18 @@ export default class AlbumDetail extends Component {
             />
           </View>
           <View style={estilos.textoCabecalhoEstilo}>
-            <Text>{this.props.album.title}</Text>
+            <Text style={{fontWeight:"bold"}}>{this.props.album.title}</Text>
             <Text>{this.props.album.artist}</Text>
           </View>
         </CartaoItem>
 
         <CartaoItem>
+          
           <Image
             source={{ uri: this.props.album.image }}
-            style={{ width: 400, height: 300 }}
+            style={{ flex:1, resizeMode: "contain", width: 400, height: 400 }}
           />
+          
         </CartaoItem>
 
         <CartaoItem>

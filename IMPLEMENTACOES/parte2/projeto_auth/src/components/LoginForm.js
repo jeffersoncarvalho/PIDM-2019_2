@@ -4,6 +4,11 @@ import { Card, CardItem, MyButton, MyInput, MySpinner } from './commons';
 import firebase from 'firebase';
 
 export default class LoginForm extends Component {
+
+    static navigationOptions = {
+        title: 'Login',
+    };
+
     constructor(props) {
         super(props);
         this.state = { email: '', senha: '', error: '', loading: false }
@@ -13,12 +18,20 @@ export default class LoginForm extends Component {
         this.setState({ error: '', loading: true });
         //alert(this.state.email);
         firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.senha)
+            .then(this.loginSucesso.bind(this))
             .catch(() => { //problema no e-mail e na senha
                 firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.senha)
-                    .catch((error) => { //algum problema na criação do usuário
-                        this.setState({ error: error.message })
-                    });
+                    .then(this.loginSucesso.bind(this))
+                    .catch(this.loginFalhou.bind(this));
             });
+    }
+
+    loginSucesso(){
+        this.setState({ email: '', senha: '', error: '', loading: false });
+    }
+
+    loginFalhou(error){
+        this.setState({ error: error.message , loading: false})
     }
 
     renderBotao() {
