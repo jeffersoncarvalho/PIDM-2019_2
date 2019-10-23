@@ -4,7 +4,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import LoginForm from './LoginForm';
 import Logout from './Logout';
-import InitApp from '../App';
+import InitApp from '../MyApp';
 
 //pilha de conteúdo, teríamos outras páginas aqui acessíveis apenas a partir do login.
 const ContentStack = createStackNavigator(
