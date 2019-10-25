@@ -3,3 +3,4 @@ export * from './Header';
 export * from './Cartao';
 export * from './CartaoItem';
 export * from './MeuInput';
+export * from './MeuSpinner';
