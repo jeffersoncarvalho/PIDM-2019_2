@@ -4,6 +4,7 @@ import firebase from 'firebase';
 
 import { Header, Cartao, CartaoItem, MeuBotao, MeuSpinner } from './components/commons';
 import LoginForm from './components/LoginForm';
+import firebase_key from './keys/firebase'
 
 export default class App extends Component {
 
@@ -16,6 +17,11 @@ export default class App extends Component {
 
   componentDidMount() {
     
+    if (!firebase.apps.length) {
+      firebase.initializeApp(
+        firebase_key
+      );
+    }//conexao com o firebase
 
     firebase.auth().onAuthStateChanged(
       (user) => {
