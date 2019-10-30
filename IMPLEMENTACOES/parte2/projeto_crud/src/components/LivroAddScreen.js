@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View,Text} from 'react-native';
 
-import {Cartao,CartaoItem,MeuSpinner,MeuInput, MeuBotao} from './commons';
+import {Cartao,CartaoItem,MeuSpinner,MeuInput, MeuBotao, Header} from './commons';
 
 import * as firebase from 'firebase';
 import 'firebase/firestore';
@@ -48,6 +48,7 @@ export default class LivroAddScreen extends Component{
         return (
             <View>
                 <Cartao>
+                    <Header titulo="Sistema de Livros" />
                     <CartaoItem>
                         <MeuInput label="Título" placeholder="As Tranças do Rei Careca " onChangeText={(titulo) => this.setState({ titulo })} />
                     </CartaoItem>

@@ -68,6 +68,7 @@ export default class LivroListarScreen extends Component {
             data={this.state.livros}
             renderItem={({ item }) =>
                 <Cartao>
+                    
                     <CartaoItem>
                         <MeuLabelText label="Título" texto={item.titulo} />
                     </CartaoItem>
@@ -97,6 +98,7 @@ export default class LivroListarScreen extends Component {
     render() {
         return (
             <View>
+                <Cartao><Header titulo="Sistema de Livros" /></Cartao>
                 {this.renderConteudo()}
             </View>
         );

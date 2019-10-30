@@ -46,6 +46,7 @@ export default class LivroEditarScreen extends Component {
         return (
             <View>
                 <Cartao>
+                    <Header titulo="Sistema de Livros" />
                     <CartaoItem>
                         <MeuInput label="Título" value={this.state.titulo} onChangeText={(titulo) => this.setState({ titulo })} />
                     </CartaoItem>

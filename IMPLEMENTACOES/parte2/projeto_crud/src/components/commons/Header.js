@@ -15,15 +15,16 @@ const estilos = StyleSheet.create({
     estiloView:{
         justifyContent:'center',
         alignItems:'center',
-        paddingTop:15,
+        padding:10,
         backgroundColor:'#F2F2F2',
-        height:60,
+        
         shadowColor:'#000',
         shadowOffset:{width:0,height:2},
         shadowOpacity:0.2
     },
     estiloTexto:{
-        fontSize:20
+        fontSize:20,
+        fontWeight:"bold"
     }
 })
 

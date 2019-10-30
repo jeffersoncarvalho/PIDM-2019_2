@@ -1,38 +1,40 @@
-import React,{Component} from 'react';
-import {Text} from 'react-native';
+import React, { Component } from 'react';
+import { Text } from 'react-native';
 
-import {Cartao,CartaoItem,MeuBotao} from './commons'
+import { Cartao, CartaoItem, MeuBotao, Header } from './commons'
 
-export default class LivroMenuScreen extends Component{
+export default class LivroMenuScreen extends Component {
 
     static navigationOptions = {
         title: "Menu"
     };
 
-    render(){
+    render() {
         return (
             <Cartao>
-                
+
+                <Header titulo="Sistema de Livros" />
+
                 <CartaoItem>
-                    <MeuBotao onPress={()=>this.props.navigation.navigate('LivroListarScreen')}>
+                    <MeuBotao onPress={() => this.props.navigation.navigate('LivroListarScreen')}>
                         Listar Livros
                     </MeuBotao>
                 </CartaoItem>
-                <CartaoItem>
+                {/*<CartaoItem>
                     <MeuBotao onPress={()=>this.props.navigation.navigate('LivroDetalheScreen')} >
                         Ver Detalhes
                     </MeuBotao>
-                </CartaoItem>
+                </CartaoItem>*/}
                 <CartaoItem>
-                    <MeuBotao onPress={()=>this.props.navigation.navigate('LivroAddScreen')}>
+                    <MeuBotao onPress={() => this.props.navigation.navigate('LivroAddScreen')}>
                         Adicionar Livro
                     </MeuBotao>
                 </CartaoItem>
-                <CartaoItem>
+                {/*<CartaoItem>
                     <MeuBotao onPress={()=>this.props.navigation.navigate('LivroEditarScreen')}>
                         Editar Livro
                     </MeuBotao>
-                </CartaoItem>
+                </CartaoItem>*/}
             </Cartao>
         );
     }
