@@ -14,6 +14,7 @@ export default class LivroListarScreen extends Component {
 
     constructor(props) {
         super(props);
+        this.unscribe = null;
         this.ref = firebase.firestore().collection('livros');
         this.state = { loading: true, livros: [] };
     }
@@ -21,13 +22,13 @@ export default class LivroListarScreen extends Component {
     alimentarLivros(query) {
         let livros = [];
         query.forEach((doc) => {
-            const { titulo, preco, autor, imagem } = doc.data();
+            //const { titulo, preco, autor, imagem } = doc.data();
             livros.push({
                 key: doc.id,
-                titulo,
-                autor,
-                preco,
-                imagem
+                titulo:doc.data().titulo,
+                autor:doc.data().autor,
+                preco:doc.data().preco,
+                imagem:doc.data().imagem
             });
         });//forEach 
         this.setState({ loading: false, livros });
@@ -45,7 +46,7 @@ export default class LivroListarScreen extends Component {
     }
 
     componentDidMount() {
-        this.ref.onSnapshot(this.alimentarLivros.bind(this));//onSnapshot
+        this.unscribe = this.ref.onSnapshot(this.alimentarLivros.bind(this));//onSnapshot
     }
 
     renderAlert(key) {
