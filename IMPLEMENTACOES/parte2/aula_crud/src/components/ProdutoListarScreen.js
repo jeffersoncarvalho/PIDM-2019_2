@@ -80,7 +80,9 @@ export default class ProdutoListarScreen extends Component {
                         <MeuLabelText label="Preço" conteudo={item.preco}/>
                     </CartaoItem>
                     <CartaoItem>
-                        <MeuBotao>
+                        <MeuBotao
+                            onPress={()=>this.props.navigation.navigate("ProdutoEditarScreen",{produto:item})}
+                        >
                             Editar
                         </MeuBotao>
 

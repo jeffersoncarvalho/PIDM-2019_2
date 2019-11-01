@@ -11,6 +11,7 @@ class MeuInput extends Component{
                         secureTextEntry={this.props.secureTextEntry}
                         placeholder={this.props.placeholder}
                         onChangeText={this.props.onChangeText}
+                        value={this.props.value}
                     />
             </View>
         );
@@ -27,7 +28,8 @@ const estilos = StyleSheet.create({
     labelEstilo:{
         fontSize:18,
         paddingLeft:10,
-        flex:1
+        flex:1,
+        fontWeight:"bold"
     },
     inputEstilo:{
         color:'#000',
@@ -35,7 +37,7 @@ const estilos = StyleSheet.create({
         paddingLeft:5,
         fontSize:18,
         lineHeight:23,
-        flex:4
+        flex:3
     }
 })
 
