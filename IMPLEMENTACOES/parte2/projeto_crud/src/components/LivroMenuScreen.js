@@ -30,11 +30,11 @@ export default class LivroMenuScreen extends Component {
                         Adicionar Livro
                     </MeuBotao>
                 </CartaoItem>
-                {/*<CartaoItem>
-                    <MeuBotao onPress={()=>this.props.navigation.navigate('LivroEditarScreen')}>
-                        Editar Livro
+                <CartaoItem>
+                    <MeuBotao onPress={()=>this.props.navigation.navigate('LivroRecuperarScreen')}>
+                        Recuperar Livro
                     </MeuBotao>
-                </CartaoItem>*/}
+                </CartaoItem>
             </Cartao>
         );
     }

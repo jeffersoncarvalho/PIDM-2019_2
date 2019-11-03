@@ -98,10 +98,10 @@ export default class LivroListarScreen extends Component {
 
     render() {
         return (
-            <View>
+            <Cartao>
                 <Cartao><Header titulo="Sistema de Livros" /></Cartao>
                 {this.renderConteudo()}
-            </View>
+            </Cartao>
         );
     }
 }
