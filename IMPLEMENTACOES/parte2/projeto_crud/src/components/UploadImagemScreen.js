@@ -17,11 +17,6 @@ const options = {
   }
 };
 
-/*const Blob = RNFetchBlob.polyfill.Blob;
-const fs = RNFetchBlob.fs;
-window.XMLHttpRequest = RNFetchBlob.polyfill.XMLHttpRequest;
-window.Blob = Blob;*/
-
 const uploadImage = (uri, mime = 'application/octet-stream') => {
 
   const Blob = RNFetchBlob.polyfill.Blob;
@@ -64,7 +59,7 @@ export default class UploadImagemScreen extends Component {
   state = {
     imgSource: '',
     uploading: false,
-    uploadedUrl: ''
+    uploadedUrl: null
   };
 
   /**
@@ -92,7 +87,8 @@ export default class UploadImagemScreen extends Component {
       .then(url => this.setState({ uploading: false, uploadedUrl: url }))
       .then(() => {
         const url = this.state.uploadedUrl;
-        /*firebase.firestore().collection('imagens').add({url:"teste"})
+        firebase.database().ref(`/imagens/`).push({ url });
+        /*firebase.firestore().collection('imagens').add({url})
         .then(()=>console.log('url salva.'))
         .catch(()=>console.log('problemas ao salvar a url'))*/
       })
@@ -103,6 +99,7 @@ export default class UploadImagemScreen extends Component {
     if (this.state.uploading) {
       return <MeuSpinner />
     }
+
     return (
       <MeuBotao onPress={() => this.callUploadImage(this.state.imgSource.uri)}>
         Upload
@@ -111,6 +108,7 @@ export default class UploadImagemScreen extends Component {
   }
 
   render() {
+
     return (
       <Cartao>
         <Header titulo="Upload de Imagens" />
