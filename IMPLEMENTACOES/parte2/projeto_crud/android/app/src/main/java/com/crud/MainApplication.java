@@ -1,4 +1,4 @@
-package com.projeto_crud;
+package com.crud;
 
 import android.app.Application;
 import android.content.Context;

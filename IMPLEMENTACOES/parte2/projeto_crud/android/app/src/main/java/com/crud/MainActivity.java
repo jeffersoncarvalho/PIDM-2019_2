@@ -1,4 +1,4 @@
-package com.projeto_crud;
+package com.crud;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "projeto_crud";
+    return "crud";
   }
 }

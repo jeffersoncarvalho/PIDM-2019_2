@@ -7,6 +7,7 @@ import LivroDetalheScreen from './LivroDetalheScreen';
 import LivroEditarScreen from './LivroEditarScreen';
 import LivroListarScreen from './LivroListarScreen';
 import LivroRecuperarScreen from './LivroRecuperarScreen';
+import UploadImagemScreen from './UploadImagemScreen'
 
 const MainStack = createStackNavigator(
     {
@@ -15,7 +16,8 @@ const MainStack = createStackNavigator(
         LivroAddScreen,
         LivroEditarScreen,
         LivroListarScreen,
-        LivroRecuperarScreen
+        LivroRecuperarScreen,
+        UploadImagemScreen
     },
     {
         initialRouteName: 'LivroMenuScreen',

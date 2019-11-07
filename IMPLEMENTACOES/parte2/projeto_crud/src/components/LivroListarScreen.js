@@ -17,6 +17,7 @@ export default class LivroListarScreen extends Component {
         this.unscribe = null;
         this.ref = firebase.firestore().collection('livros');
         this.state = { loading: true, livros: [] };
+        this._isMounted = false;
     }
 
     alimentarLivros(query) {
@@ -31,22 +32,27 @@ export default class LivroListarScreen extends Component {
                 imagem:doc.data().imagem
             });
         });//forEach 
-        this.setState({ loading: false, livros });
+        this._isMounted && this.setState({ loading: false, livros });
     }
 
     excluirLivro(key){
-        this.setState({loading:true});
+        this._isMounted && this.setState({loading:true});
         firebase.firestore().collection('livros').doc(key).delete()
         .then(()=>{
-            this.setState({loading:false});
+            this._isMounted && this.setState({loading:false});
         })
         .catch(()=>{
-            this.setState({loading:false});
+            this._isMounted && this.setState({loading:false});
         });
     }
 
     componentDidMount() {
+        this._isMounted = true;
         this.unscribe = this.ref.onSnapshot(this.alimentarLivros.bind(this));//onSnapshot
+    }
+
+    componentWillUnmount(){
+        this._isMounted = false;
     }
 
     renderAlert(key) {
