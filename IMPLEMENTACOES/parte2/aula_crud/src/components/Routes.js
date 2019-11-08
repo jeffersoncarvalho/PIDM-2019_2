@@ -5,13 +5,17 @@ import ProdutoMenuScreen from './ProdutoMenuScreen';
 import ProdutoAddScreen from './ProdutoAddScreen';
 import ProdutoEditarScreen from './ProdutoEditarScreen';
 import ProdutoListarScreen from './ProdutoListarScreen';
+import ProdutoRecuperarScreen from './ProdutoRecuperarScreen';
+import UploadImagemScreen from './UploadImagemScreen';
 
 const MainStack = createStackNavigator(
     {
         ProdutoMenuScreen,
         ProdutoAddScreen,
         ProdutoEditarScreen,
-        ProdutoListarScreen
+        ProdutoListarScreen,
+        ProdutoRecuperarScreen,
+        UploadImagemScreen
     },
     {
         initialRouteName: 'ProdutoMenuScreen',

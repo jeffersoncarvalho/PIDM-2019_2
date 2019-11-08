@@ -24,6 +24,20 @@ export default class ProdutoMenuScreen extends Component {
                        Adicionar Produto
                    </MeuBotao> 
                 </CartaoItem>
+                <CartaoItem>
+                   <MeuBotao
+                        onPress={()=>this.props.navigation.navigate("ProdutoRecuperarScreen")}
+                   >
+                       Recuperar Produto
+                   </MeuBotao> 
+                </CartaoItem>
+                <CartaoItem>
+                   <MeuBotao
+                        onPress={()=>this.props.navigation.navigate("UploadImagemScreen")}
+                   >
+                       Upload Imagem
+                   </MeuBotao> 
+                </CartaoItem>
             </Cartao>
         )
     }

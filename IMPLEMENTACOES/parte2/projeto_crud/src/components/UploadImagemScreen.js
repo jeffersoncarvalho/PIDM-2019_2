@@ -29,7 +29,7 @@ const uploadImage = (uri, mime = 'application/octet-stream') => {
     const uploadUri = Platform.OS === 'ios' ? uri.replace('file://', '') : uri
     const sessionId = new Date().getTime();
     let uploadBlob = null;
-    const imageRef = firebase.storage().ref('images').child(`${sessionId}`);
+    const imageRef = firebase.storage().ref('imagens').child(`${sessionId}`);
 
     fs.readFile(uploadUri, 'base64')
       .then((data) => {
@@ -88,9 +88,6 @@ export default class UploadImagemScreen extends Component {
       .then(() => {
         const url = this.state.uploadedUrl;
         firebase.database().ref(`/imagens/`).push({ url });
-        /*firebase.firestore().collection('imagens').add({url})
-        .then(()=>console.log('url salva.'))
-        .catch(()=>console.log('problemas ao salvar a url'))*/
       })
       .catch(error => { this.setState({ uploading: false }); console.log(error) });
   }

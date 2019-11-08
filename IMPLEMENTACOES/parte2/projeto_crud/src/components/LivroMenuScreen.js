@@ -35,11 +35,16 @@ export default class LivroMenuScreen extends Component {
                         Recuperar Livro
                     </MeuBotao>
                 </CartaoItem>
-                {<CartaoItem>
+                <CartaoItem>
                     <MeuBotao onPress={()=>this.props.navigation.navigate('UploadImagemScreen')}>
                         Upload Imagem
                     </MeuBotao>
-                </CartaoItem>}
+                </CartaoItem>
+                <CartaoItem>
+                    <MeuBotao onPress={()=>this.props.navigation.navigate('ListarImagensScreen')}>
+                        Listar Imagens
+                    </MeuBotao>
+                </CartaoItem>
             </Cartao>
         );
     }
