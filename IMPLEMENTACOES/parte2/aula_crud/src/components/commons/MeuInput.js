@@ -8,10 +8,7 @@ class MeuInput extends Component{
                 <Text style={estilos.labelEstilo}>{this.props.label}</Text>
                 <TextInput
                         style={estilos.inputEstilo}
-                        secureTextEntry={this.props.secureTextEntry}
-                        placeholder={this.props.placeholder}
-                        onChangeText={this.props.onChangeText}
-                        value={this.props.value}
+                        {...this.props}
                     />
             </View>
         );

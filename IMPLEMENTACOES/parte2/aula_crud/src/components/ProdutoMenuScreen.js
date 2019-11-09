@@ -38,6 +38,13 @@ export default class ProdutoMenuScreen extends Component {
                        Upload Imagem
                    </MeuBotao> 
                 </CartaoItem>
+                <CartaoItem>
+                   <MeuBotao
+                        onPress={()=>this.props.navigation.navigate("ListarImagensScreen")}
+                   >
+                       Listar Imagens
+                   </MeuBotao> 
+                </CartaoItem>
             </Cartao>
         )
     }

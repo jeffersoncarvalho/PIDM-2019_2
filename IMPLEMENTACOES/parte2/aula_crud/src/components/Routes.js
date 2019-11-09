@@ -7,6 +7,7 @@ import ProdutoEditarScreen from './ProdutoEditarScreen';
 import ProdutoListarScreen from './ProdutoListarScreen';
 import ProdutoRecuperarScreen from './ProdutoRecuperarScreen';
 import UploadImagemScreen from './UploadImagemScreen';
+import ListarImagensScreen from './ListarImagensScreen';
 
 const MainStack = createStackNavigator(
     {
@@ -15,7 +16,8 @@ const MainStack = createStackNavigator(
         ProdutoEditarScreen,
         ProdutoListarScreen,
         ProdutoRecuperarScreen,
-        UploadImagemScreen
+        UploadImagemScreen,
+        ListarImagensScreen
     },
     {
         initialRouteName: 'ProdutoMenuScreen',
