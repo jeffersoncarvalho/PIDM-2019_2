@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import MapView from 'react-native-maps';
 
 
@@ -7,21 +7,26 @@ export default class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { markers: null };
+    this.state = { marker: null };
   }
 
-  addMarker(coordinates) {
-    // Remove the following line after testing, its just to show coordinates as a warning in console.
-    //console.warn(coordinates);
+  renderMarker(){
+    if(!this.state.marker) return null;
 
-    this.setState({
-      markers: [...this.state.markers,
-      { latlng: coordinates }
-      ]
-    });
+    let latitude = this.state.marker.latitude;
+    let longitude = this.state.marker.longitude;
+    let positionStr = "("+latitude+","+longitude+")"
+
+    console.log(longitude);
+
+    return (
+      <MapView.Marker coordinate={this.state.marker} title={positionStr}/>
+    );
   }
 
   render() {
+
+    //if(this.state.marker) console.log(this.state.marker)
 
     return (
       <View style={styles.container}>
@@ -34,8 +39,8 @@ export default class App extends Component {
             longitudeDelta: 0.0121,
           }}
           onPress={(e) => this.setState({ marker: e.nativeEvent.coordinate })}>
-            
-          {this.state.marker && <MapView.Marker coordinate={this.state.marker} />}
+
+          {this.renderMarker()}
 
         </MapView>
       </View>
