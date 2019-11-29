@@ -3,7 +3,7 @@ import {View,Text,FlatList,Image,StyleSheet} from 'react-native';
 
 import * as firebase from 'firebase';
 
-import {Cartao,CartaoItem,MeuSpinner,Header, ProgressiveImage} from './commons'
+import {CartaoItem,MeuSpinner, ProgressiveImage} from './commons'
 
 
 export default class ListarImagensScreen extends Component{
@@ -14,11 +14,11 @@ export default class ListarImagensScreen extends Component{
         this.state = {loading:true,urls:[]}
     }
 
-    getImagensURL(imagens){
+    getImagensURL(){
         let urls = [];
-        imagens.once('value',(snapshot)=>{
+        this.imagens.once('value',(snapshot)=>{
             snapshot.forEach((childSnapshot)=>{
-                var key = childSnapshot.key;
+                //var key = childSnapshot.key;
                 var childData = childSnapshot.val();
                 urls.push({url:childData.url});
                 //alert("key: "+ key + "\ndata: "+childData.url);
@@ -29,19 +29,22 @@ export default class ListarImagensScreen extends Component{
     }
 
     componentDidMount(){
-        this.getImagensURL(this.imagens);
+        this.getImagensURL();
+        this.props.onRef(this)
     }
 
-    /*componentDidUpdate(){
-        this.getImagensURL(this.imagens);
-    }*/
+    componentWillUnmount() {
+        this.props.onRef(undefined)
+    }
+    
+ 
 
     renderConteudo(){
         if(this.state.loading)
             return <CartaoItem><MeuSpinner/></CartaoItem>
         
         return(
-        <CartaoItem>
+         
             <FlatList
                 data = {this.state.urls}
                 renderItem = {({item})=>
@@ -51,7 +54,7 @@ export default class ListarImagensScreen extends Component{
                 }
                 keyExtractor={(item)=>item.url}
             />
-        </CartaoItem> );
+        );
     }
 
     render(){

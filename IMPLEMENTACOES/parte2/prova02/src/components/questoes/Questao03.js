@@ -1,4 +1,5 @@
 //AULA
+//https://github.com/kriasoft/react-starter-kit/issues/909
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import ImagePicker from 'react-native-image-picker';
@@ -92,6 +93,7 @@ export default class Questao03 extends Component {
         const url = this.state.uploadedUrl;
         firebase.database().ref(`/imagens_aula/`).push({ url });
         this.setState({ uploading: false });
+        this.child.getImagensURL();
       })
       .catch(error => { this.setState({ uploading: false }); console.log(error) });
   }
@@ -137,10 +139,7 @@ export default class Questao03 extends Component {
         ) : (
             <CartaoItem><Text>Select an Image!</Text></CartaoItem>
           )}
-
-          <CartaoItem>
-            <ListarImagens/>
-          </CartaoItem>
+          <ListarImagens onRef={ref => (this.child = ref)}/>
       </Cartao>
 
     );
